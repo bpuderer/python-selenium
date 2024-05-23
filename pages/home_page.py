@@ -2,6 +2,9 @@ from selenium.webdriver.common.by import By
 from pages.drag_and_drop_page import DragAndDropPage
 from pages.dropdown_page import DropdownPage
 from pages.dynamic_loading_page import DynamicLoadingPage
+from pages.alerts_page import AlertsPage
+from pages.context_menu_page import ContextMenuPage
+from pages.entry_ad_page import EntryAdPage
 
 
 class HomePage():
@@ -20,6 +23,18 @@ class HomePage():
     def click_dynamic_loading(self):
         self.click_link("Dynamic Loading")
         return DynamicLoadingPage(self.driver)
+
+    def click_javascript_alerts(self):
+        self.click_link("JavaScript Alerts")
+        return AlertsPage(self.driver)
+
+    def click_context_menu(self):
+        self.click_link("Context Menu")
+        return ContextMenuPage(self.driver)
+
+    def click_entry_ad(self):
+        self.click_link("Entry Ad")
+        return EntryAdPage(self.driver)
 
     def click_link(self, link_text):
         self.driver.find_element(By.LINK_TEXT, link_text).click();
