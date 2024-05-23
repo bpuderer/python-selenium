@@ -5,6 +5,7 @@ from pages.dynamic_loading_page import DynamicLoadingPage
 from pages.alerts_page import AlertsPage
 from pages.context_menu_page import ContextMenuPage
 from pages.entry_ad_page import EntryAdPage
+from pages.frames_page import FramesPage
 
 
 class HomePage():
@@ -35,6 +36,10 @@ class HomePage():
     def click_entry_ad(self):
         self.click_link("Entry Ad")
         return EntryAdPage(self.driver)
+
+    def click_frames(self):
+        self.click_link("Frames")
+        return FramesPage(self.driver)
 
     def click_link(self, link_text):
         self.driver.find_element(By.LINK_TEXT, link_text).click();
