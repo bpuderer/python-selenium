@@ -6,6 +6,7 @@ from pages.alerts_page import AlertsPage
 from pages.context_menu_page import ContextMenuPage
 from pages.entry_ad_page import EntryAdPage
 from pages.frames_page import FramesPage
+from pages.hovers_page import HoversPage
 
 
 class HomePage():
@@ -40,6 +41,10 @@ class HomePage():
     def click_frames(self):
         self.click_link("Frames")
         return FramesPage(self.driver)
+
+    def click_hovers(self):
+        self.click_link("Hovers")
+        return HoversPage(self.driver)
 
     def click_link(self, link_text):
         self.driver.find_element(By.LINK_TEXT, link_text).click();
