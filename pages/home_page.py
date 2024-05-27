@@ -9,6 +9,8 @@ from pages.frames_page import FramesPage
 from pages.hovers_page import HoversPage
 from pages.horizontal_slider_page import HorizontalSliderPage
 from pages.login_page import LoginPage
+from pages.infinite_scroll_page import InfiniteScrollPage
+from pages.large_and_deep_dom_page import LargeAndDeepDomPage
 
 
 class HomePage():
@@ -55,6 +57,14 @@ class HomePage():
     def click_form_authentication(self):
         self.click_link("Form Authentication")
         return LoginPage(self.driver)
+
+    def click_infinite_scroll(self):
+        self.click_link("Infinite Scroll")
+        return InfiniteScrollPage(self.driver)
+
+    def click_large_and_deep_dom(self):
+        self.click_link("Large & Deep DOM")
+        return LargeAndDeepDomPage(self.driver)
 
     def click_link(self, link_text):
         self.driver.find_element(By.LINK_TEXT, link_text).click();
