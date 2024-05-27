@@ -7,6 +7,8 @@ from pages.context_menu_page import ContextMenuPage
 from pages.entry_ad_page import EntryAdPage
 from pages.frames_page import FramesPage
 from pages.hovers_page import HoversPage
+from pages.horizontal_slider_page import HorizontalSliderPage
+from pages.login_page import LoginPage
 
 
 class HomePage():
@@ -45,6 +47,14 @@ class HomePage():
     def click_hovers(self):
         self.click_link("Hovers")
         return HoversPage(self.driver)
+
+    def click_horizontal_slider(self):
+        self.click_link("Horizontal Slider")
+        return HorizontalSliderPage(self.driver)
+
+    def click_form_authentication(self):
+        self.click_link("Form Authentication")
+        return LoginPage(self.driver)
 
     def click_link(self, link_text):
         self.driver.find_element(By.LINK_TEXT, link_text).click();

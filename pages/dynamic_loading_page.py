@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from pages.dynamic_loading_example1_page import DynamicLoadingExample1Page
 from pages.dynamic_loading_example2_page import DynamicLoadingExample2Page
+from selenium.webdriver.common.keys import Keys
 
 
 class DynamicLoadingPage():
@@ -18,3 +19,6 @@ class DynamicLoadingPage():
     def click_example2(self):
         self.driver.find_element(*DynamicLoadingPage.EXAMPLE2_LINK).click()
         return DynamicLoadingExample2Page(self.driver)
+
+    def right_click_example2(self):
+        self.driver.find_element(*DynamicLoadingPage.EXAMPLE2_LINK).send_keys(Keys.CONTROL, Keys.ENTER)
