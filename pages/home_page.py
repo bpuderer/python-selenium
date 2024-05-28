@@ -13,6 +13,9 @@ from pages.infinite_scroll_page import InfiniteScrollPage
 from pages.large_and_deep_dom_page import LargeAndDeepDomPage
 from pages.checkboxes_page import CheckboxesPage
 from pages.broken_images_page import BrokenImagesPage
+from pages.add_remove_elements_page import AddRemoveElementsPage
+from pages.key_presses_page import KeyPressesPage
+from pages.basic_auth_page import BasicAuthPage
 
 
 class HomePage():
@@ -75,6 +78,23 @@ class HomePage():
     def click_broken_images(self):
         self.click_link("Broken Images")
         return BrokenImagesPage(self.driver)
+
+    def click_add_remove_elements(self):
+        self.click_link("Add/Remove Elements")
+        return AddRemoveElementsPage(self.driver)
+
+    def click_key_presses(self):
+        self.click_link("Key Presses")
+        return KeyPressesPage(self.driver)
+
+    def click_basic_auth_plus_credentials(self, user, password):
+        url = self.driver.find_element(By.XPATH, "//a[text()='Basic Auth']").get_attribute('href')
+        self.driver.get(self.add_auth_to_url(url, user, password))
+        return BasicAuthPage(self.driver)
+
+    def add_auth_to_url(self, url, user, password):
+        location_to_insert_auth = url.find('//') + 2
+        return url[:location_to_insert_auth] + user + ':' + password + '@' + url[location_to_insert_auth:]
 
     def click_link(self, link_text):
         self.driver.find_element(By.LINK_TEXT, link_text).click();
