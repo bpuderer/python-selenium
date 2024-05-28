@@ -11,6 +11,8 @@ from pages.horizontal_slider_page import HorizontalSliderPage
 from pages.login_page import LoginPage
 from pages.infinite_scroll_page import InfiniteScrollPage
 from pages.large_and_deep_dom_page import LargeAndDeepDomPage
+from pages.checkboxes_page import CheckboxesPage
+from pages.broken_images_page import BrokenImagesPage
 
 
 class HomePage():
@@ -65,6 +67,14 @@ class HomePage():
     def click_large_and_deep_dom(self):
         self.click_link("Large & Deep DOM")
         return LargeAndDeepDomPage(self.driver)
+
+    def click_checkboxes(self):
+        self.click_link("Checkboxes")
+        return CheckboxesPage(self.driver)
+
+    def click_broken_images(self):
+        self.click_link("Broken Images")
+        return BrokenImagesPage(self.driver)
 
     def click_link(self, link_text):
         self.driver.find_element(By.LINK_TEXT, link_text).click();
