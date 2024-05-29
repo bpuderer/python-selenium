@@ -15,6 +15,7 @@ from pages.checkboxes_page import CheckboxesPage
 from pages.broken_images_page import BrokenImagesPage
 from pages.add_remove_elements_page import AddRemoveElementsPage
 from pages.key_presses_page import KeyPressesPage
+from pages.file_upload_page import FileUploadPage
 from pages.basic_auth_page import BasicAuthPage
 
 
@@ -86,6 +87,10 @@ class HomePage():
     def click_key_presses(self):
         self.click_link("Key Presses")
         return KeyPressesPage(self.driver)
+
+    def click_file_upload(self):
+        self.click_link("File Upload")
+        return FileUploadPage(self.driver)
 
     def click_basic_auth_plus_credentials(self, user, password):
         url = self.driver.find_element(By.XPATH, "//a[text()='Basic Auth']").get_attribute('href')
